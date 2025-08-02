@@ -42,6 +42,7 @@ Una aplicación web interactiva y divertida para organizar sorteos de Amigo Secr
     cd nombre-del-repositorio
     ```
 3.  **Abrir `index.html`:** Simplemente abre el archivo `index.html` en tu navegador web preferido.
+4.  **Otra forma es correrlo online! - Sitio activo en https://p4154n0.github.io/Challenge_Amigo_Secreto_Esp/**
 
 ### Pasos en la aplicación:
 
