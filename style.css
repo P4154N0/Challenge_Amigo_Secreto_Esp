@@ -1,0 +1,401 @@
+/* --- Variables CSS (Custom Properties) --- */
+:root {
+    --color-primary: #4B69FD; /* Azul vibrante */
+    --color-secondary: #FFF9EB; /* Blanco hueso/crema para el fondo principal */
+    --color-tertiary: #C4C4C4; /* Gris suave para elementos neutrales */
+    --color-button: #fe652b; /* Naranja rojizo para botón principal */
+    --color-button-hover: #e55720; /* Naranja más oscuro al pasar el ratón */
+    --color-text: #333333; /* Gris oscuro para el texto general */
+    --color-white: #FFFFFF; /* Blanco puro */
+    --color-success: #05DF05; /* Verde para resultados positivos (ajustado para armonizar) */
+}
+
+/* --- Estilos Generales y Reset CSS --- */
+* {
+    margin: 0;           /* Elimina el margen por defecto de todos los elementos */
+    padding: 0;          /* Elimina el padding por defecto de todos los elementos */
+    box-sizing: border-box; /* Asegura que el padding y el borde no aumenten el tamaño final de los elementos */
+}
+
+/* --- Estilos del Cuerpo de la Página (body) --- */
+body {
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la ventana */
+    background-color: var(--color-primary); /* Establece el color de fondo usando la variable primaria */
+    display: flex; /* Convierte el body en un contenedor flexbox */
+    flex-direction: column; /* Organiza los hijos directos del body (main y footer) en una columna */
+    font-family: "Inter", sans-serif; /* Establece la fuente principal para todo el texto */
+    color: var(--color-text); /* Establece el color de texto por defecto */
+}
+
+/* --- Contenedor Principal de la Aplicación (main-content) --- */
+.main-content {
+    display: flex;             /* Convierte el main-content en un contenedor flexbox */
+    flex-direction: column;    /* Organiza sus hijos (banner y sección de input) en una columna */
+    max-width: 900px;          /* Ancho máximo para el contenedor principal */
+    width: 95%;                /* Ocupa el 95% del ancho disponible en pantallas grandes */
+    height: 85vh;              /* Altura para el contenedor principal (la "tarjeta") */
+    background-color: var(--color-secondary); /* Fondo del "card" principal */
+    border-radius: 20px;       /* Bordes redondeados para todo el contenedor */
+    overflow: hidden;          /* Asegura que los hijos no se desborden de los bordes redondeados */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Sombra para dar efecto de "flotar" */
+    
+    /* Propiedades para centrar la tarjeta dentro del body y darle espacio */
+    margin: auto;              /* Centra el main-content horizontalmente y distribuye el espacio vertical restante */
+    margin-top: 30px;          /* Un poco de margen superior para separarlo del borde superior de la ventana */
+    margin-bottom: 30px;       /* Un poco de margen inferior para separarlo del footer */
+}
+
+/* --- Banner Superior (header-banner) --- */
+.header-banner {
+    flex: 0 0 35%; /* El banner ocupa el 35% de la altura de su contenedor padre (.main-content) */
+    display: flex;             /* Convierte el banner en un contenedor flexbox */
+    flex-direction: column;    /* Organiza sus hijos (título e imagen) en una columna */
+    justify-content: center;   /* Centra los elementos verticalmente */
+    align-items: center;       /* Centra los elementos horizontalmente */
+    padding: 20px;             /* Espaciado interno */
+    background-color: var(--color-primary); /* Color de fondo del banner */
+    border-radius: 20px 20px 0 0; /* Bordes superiores redondeados */
+    color: var(--color-white); /* Color del texto del banner */
+}
+
+.header-banner img {
+    max-width: 180px; /* Tamaño máximo de la imagen del banner */
+    height: auto;     /* Mantiene la proporción de la imagen */
+    margin-top: 15px; /* Espacio superior para la imagen */
+}
+
+/* --- Sección de Entrada y Sorteo (input-section) --- */
+.input-section {
+    flex: 1; /* Ocupa el resto del espacio disponible en el .main-content */
+    background-color: var(--color-secondary); /* Fondo de la sección de entrada */
+    border-radius: 64px 64px 0 0; /* Bordes redondeados superiores para esta sección (efecto de "solapa") */
+    display: flex;                 /* Convierte la sección en un contenedor flexbox */
+    flex-direction: column;        /* Organiza sus hijos en una columna */
+    align-items: center;           /* Centra los elementos horizontalmente */
+    padding: 30px 20px;            /* Espaciado interno */
+    width: 100%;                   /* Ocupa todo el ancho de su contenedor padre */
+    box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil para separar del banner */
+    overflow-y: auto;              /* Permite scroll vertical si la lista crece mucho */
+}
+
+/* --- Títulos --- */
+.main-title {
+    font-size: 52px;             /* Tamaño del título principal */
+    font-family: "Merriweather", serif; /* Fuente serif para el título principal */
+    font-weight: 900;            /* Grosor de la fuente extra bold */
+    font-style: italic;          /* Estilo itálico */
+    color: var(--color-white);   /* Color del título */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para que el título resalte */
+}
+
+.section-title {
+    font-family: "Inter", sans-serif; /* Fuente sans-serif para los títulos de sección */
+    font-size: 32px;             /* Tamaño del título de sección */
+    font-weight: 700;            /* Grosor de la fuente bold */
+    color: var(--color-primary); /* Color del título de sección */
+    margin: 15px 0 25px;         /* Margen superior, horizontal y inferior */
+    text-align: center;          /* Centra el texto */
+}
+
+/* --- Contenedor de Entrada y Botón de Añadir (input-wrapper) --- */
+.input-wrapper {
+    display: flex;             /* Convierte el wrapper en un contenedor flexbox */
+    justify-content: center;   /* Centra horizontalmente los elementos (input y botón) */
+    width: 100%;               /* Ocupa todo el ancho disponible */
+    max-width: 500px;          /* Ancho máximo para el campo de entrada y el botón */
+    margin-bottom: 20px;       /* Margen inferior para separarlo de la lista */
+}
+
+.input-name {
+    flex: 1;                     /* El input ocupa el espacio restante en el wrapper */
+    padding: 12px 18px;          /* Espaciado interno */
+    border: 2px solid var(--color-tertiary); /* Borde inicial suave */
+    border-right: none;          /* Elimina el borde derecho para que se "una" visualmente al botón */
+    border-radius: 25px 0 0 25px; /* Solo redondeado a la izquierda */
+    font-size: 18px;             /* Tamaño de la fuente del texto de entrada */
+    font-family: "Inter", sans-serif; /* Fuente del texto de entrada */
+    outline: none;               /* Quita el contorno azul/negro que aparece al enfocar */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves al enfocar */
+}
+
+.input-name::placeholder {
+    color: #999; /* Color del texto de marcador de posición */
+}
+
+.input-name:focus {
+    border-color: var(--color-primary); /* Borde azul al enfocar */
+    box-shadow: 0 0 8px rgba(75, 105, 253, 0.4); /* Sombra sutil al enfocar */
+}
+
+/* --- Estilos de Botón General --- */
+button {
+    padding: 12px 25px;          /* Espaciado interno del botón */
+    font-family: "Inter", sans-serif; /* Fuente del texto del botón */
+    font-size: 18px;             /* Tamaño de la fuente del botón */
+    font-weight: 600;            /* Grosor de la fuente semibold */
+    border: none;                /* Quita los bordes por defecto del botón */
+    border-radius: 25px;         /* Bordes redondeados por defecto para botones */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    cursor: pointer;             /* Cambia el cursor a una mano al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* --- Botón Añadir (button-add) --- */
+.button-add {
+    background-color: var(--color-tertiary); /* Color de fondo gris para añadir */
+    color: var(--color-text);            /* Color del texto */
+    border-radius: 0 25px 25px 0;         /* Solo redondeado a la derecha */
+    border: 2px solid var(--color-tertiary); /* Borde para que se una visualmente al input */
+    border-left: none;                   /* Elimina el borde izquierdo para que se junte con el input */
+}
+
+.button-add:hover {
+    background-color: var(--color-primary); /* Color azul al pasar el ratón */
+    color: var(--color-white);           /* Texto blanco al pasar el ratón */
+    transform: translateY(-1px);         /* Pequeño levantamiento al pasar el ratón */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada */
+}
+
+/* --- Contenedor de Botones (sortear y reiniciar) (button-container) --- */
+.button-container {
+    display: flex;             /* Convierte el contenedor en un flexbox */
+    gap: 20px;                 /* Espacio entre los botones */
+    margin-top: 30px;          /* Margen superior */
+    width: 100%;               /* Ocupa todo el ancho disponible */
+    justify-content: center;   /* Centra los botones horizontalmente */
+    flex-wrap: wrap;           /* Permite que los botones se envuelvan en pantallas pequeñas */
+}
+
+/* --- Botón Sortear Amigo (button-draw) --- */
+.button-draw {
+    display: flex;             /* Convierte el botón en un flexbox para alinear el icono y el texto */
+    align-items: center;       /* Centra los elementos verticalmente */
+    justify-content: center;   /* Centra los elementos horizontalmente */
+    background-color: var(--color-button); /* Color naranja vibrante */
+    color: var(--color-white);           /* Texto blanco */
+    padding: 15px 30px;          /* Más padding para que sea más prominente */
+    font-size: 20px;             /* Tamaño de fuente más grande */
+    font-weight: 700;            /* Grosor de fuente bold */
+}
+
+.button-draw img {
+    width: 28px;                 /* Tamaño del icono */
+    height: 28px;                /* Altura del icono */
+    margin-right: 12px;          /* Espacio a la derecha del icono */
+}
+
+.button-draw:hover {
+    background-color: var(--color-button-hover); /* Naranja más oscuro al pasar el ratón */
+    transform: translateY(-2px);         /* Mayor levantamiento */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+/* --- Botón Reiniciar (button-reset) --- */
+.button-reset {
+    background-color: var(--color-text); /* Color gris oscuro para reiniciar */
+    color: var(--color-white);           /* Texto blanco */
+    padding: 15px 30px;          /* Padding similar al botón de sortear */
+    font-size: 18px;             /* Tamaño de fuente */
+}
+
+.button-reset:hover {
+    background-color: #555555;   /* Gris ligeramente más claro al pasar el ratón */
+    transform: translateY(-1px);         /* Pequeño levantamiento */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada */
+}
+
+/* --- Listas (General) --- */
+ul {
+    list-style-type: none; /* Quita los puntos de lista predeterminados */
+    padding: 0;            /* Elimina el padding por defecto */
+    margin: 0;             /* Elimina el margen por defecto */
+    width: 100%;           /* Ocupa todo el ancho disponible */
+    max-width: 500px;      /* Mismo ancho máximo que el input wrapper para alineación */
+}
+
+/* --- Lista de Amigos Agregados (name-list) --- */
+.name-list {
+    display: flex;             /* Convierte la lista en un flexbox */
+    flex-wrap: wrap;           /* Permite que los elementos se envuelvan en múltiples líneas */
+    gap: 10px;                 /* Espacio entre los "tags" de nombres */
+    margin-top: 20px;          /* Margen superior */
+    min-height: 50px;          /* Altura mínima para que siempre sea visible */
+    border: 1px dashed var(--color-tertiary); /* Borde punteado suave */
+    border-radius: 10px;       /* Bordes redondeados para el contenedor */
+    padding: 10px;             /* Espaciado interno */
+    background-color: var(--color-white); /* Fondo blanco */
+    align-items: center;       /* Alinea los elementos al centro verticalmente */
+    justify-content: flex-start; /* Alinea los elementos al inicio horizontalmente */
+}
+
+.name-list li {
+    background-color: var(--color-primary); /* Color de fondo para cada nombre (como un "tag") */
+    color: var(--color-white);           /* Color del texto del nombre */
+    padding: 8px 15px;                   /* Espaciado interno del tag */
+    border-radius: 20px;                 /* Bordes más redondeados para parecer un "tag" */
+    font-size: 16px;                     /* Tamaño de la fuente */
+    font-weight: 600;                    /* Grosor de la fuente semibold */
+    display: flex;                       /* Para posibles iconos o elementos dentro del tag */
+    align-items: center;                 /* Centra elementos dentro del tag */
+    gap: 5px;                            /* Espacio entre elementos dentro del tag */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* --- Lista de Resultados del Sorteo (result-list) --- */
+.result-list {
+    margin-top: 25px;            /* Margen superior */
+    padding: 20px;               /* Espaciado interno */
+    background-color: #e6ffe6;   /* Fondo verde muy suave para resaltar resultados positivos */
+    border: 2px solid var(--color-success); /* Borde verde */
+    border-radius: 15px;         /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    display: flex;               /* Convierte la lista en un flexbox */
+    flex-direction: column;      /* Organiza los elementos en columna */
+    gap: 15px;                   /* Espacio entre cada pareja */
+    color: var(--color-text);    /* Color de texto más neutral */
+    font-size: 20px;             /* Tamaño de fuente */
+    text-align: center;          /* Centra el texto */
+    font-weight: 500;            /* Grosor de fuente medio */
+}
+
+.result-list li {
+    font-size: 20px;            /* Tamaño de fuente para cada elemento de la lista de resultados */
+    font-weight: 500;           /* Grosor de fuente medio */
+}
+
+.result-list li strong {
+    color: var(--color-primary); /* Color azul vibrante para los nombres resaltados */
+    font-weight: 700;           /* Grosor de fuente bold para los nombres */
+}
+
+/* --- Estilos del Footer --- */
+.footer {
+    width: 100%;                 /* Ocupa todo el ancho de la ventana */
+    padding: 20px;               /* Espaciado interno */
+    text-align: center;          /* Centra el texto */
+    font-size: 14px;             /* Tamaño de fuente más pequeño para el footer */
+    color: var(--color-white);   /* Color del texto del footer */
+    background-color: var(--color-primary); /* Mismo color que el banner superior */
+    margin-top: auto;            /* Empuja el footer hacia la parte inferior del body (gracias a body {flex-direction: column}) */
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil para separarlo del contenido principal */
+    display: flex;               /* Convierte el footer en un flexbox para alinear su contenido */
+    justify-content: center;     /* Centra horizontalmente el texto dentro del footer */
+    align-items: center;         /* Centra verticalmente el texto dentro del footer */
+    flex-wrap: wrap;             /* Permite que el texto se envuelva en líneas en pantallas pequeñas */
+    gap: 5px;                    /* Pequeño espacio entre los elementos del footer (texto, enlace) */
+}
+
+.footer a {
+    color: var(--color-secondary); /* Color diferente (crema) para el enlace en el footer */
+    text-decoration: none;       /* Sin subrayado por defecto */
+    font-weight: 700;            /* Grosor de fuente bold */
+    transition: color 0.3s ease; /* Transición suave para el color del enlace */
+}
+
+.footer a:hover {
+    color: var(--color-white);   /* Cambia a blanco puro al pasar el ratón */
+    text-decoration: underline;  /* Subrayado al pasar el ratón */
+}
+
+/* --- Responsividad --- */
+/* Media query para pantallas con un ancho máximo de 768px (tablets y móviles) */
+@media (max-width: 768px) {
+    .main-content {
+        width: 100%;       /* Ocupa todo el ancho en móviles */
+        height: 100vh;     /* Ocupa toda la altura en móviles */
+        border-radius: 0;  /* Sin bordes redondeados en móviles para un look de app completa */
+        box-shadow: none;  /* Sin sombra en móviles */
+        margin: 0;         /* Elimina los márgenes para ocupar todo el espacio */
+    }
+
+    .header-banner {
+        flex: 0 0 25%;     /* Menos altura para el banner en móviles */
+        border-radius: 0;  /* Sin bordes redondeados */
+        padding: 15px;     /* Menos padding */
+    }
+
+    .main-title {
+        font-size: 40px;   /* Tamaño de título más pequeño */
+    }
+
+    .header-banner img {
+        max-width: 120px;  /* Imagen más pequeña */
+    }
+
+    .input-section {
+        border-radius: 40px 40px 0 0; /* Ajustar el redondeado superior */
+        padding: 20px 15px; /* Ajustar padding */
+        gap: 15px;         /* Espacio entre elementos en la columna */
+    }
+
+    .section-title {
+        font-size: 26px;   /* Tamaño de título de sección más pequeño */
+        margin: 10px 0 20px; /* Margen ajustado */
+    }
+
+    .input-wrapper {
+        flex-direction: column; /* Input y botón apilados verticalmente */
+        gap: 10px;              /* Espacio entre input y botón */
+        max-width: 90%;         /* Ancho máximo ajustado */
+    }
+
+    .input-name {
+        border-radius: 25px; /* Bordes redondeados completos para el input */
+        border-right: 2px solid var(--color-tertiary); /* Restaura el borde derecho */
+    }
+
+    .button-add {
+        border-radius: 25px; /* Bordes redondeados completos para el botón añadir */
+        border-left: 2px solid var(--color-tertiary); /* Restaura el borde izquierdo */
+    }
+
+    .button-container {
+        flex-direction: column; /* Botones de sortear y reiniciar apilados */
+        gap: 15px;              /* Espacio entre los botones */
+        max-width: 90%;         /* Ancho máximo ajustado */
+    }
+
+    .button-draw,
+    .button-reset {
+        font-size: 18px;        /* Tamaño de fuente ajustado */
+        padding: 15px 25px;     /* Padding ajustado */
+        width: 100%;            /* Ocupan todo el ancho disponible */
+    }
+
+    .name-list,
+    .result-list {
+        max-width: 90%;         /* Ancho máximo ajustado */
+        font-size: 16px;        /* Tamaño de fuente ajustado */
+        padding: 15px;          /* Padding ajustado */
+    }
+
+    .result-list li {
+        font-size: 18px;        /* Tamaño de fuente de los ítems de resultado */
+    }
+}
+
+/* Media query para pantallas muy pequeñas (ej. iPhone SE) con un ancho máximo de 400px */
+@media (max-width: 400px) {
+    .main-title {
+        font-size: 32px; /* Título principal más pequeño */
+    }
+    .section-title {
+        font-size: 22px; /* Título de sección más pequeño */
+    }
+    .input-name, .button-add, .button-draw, .button-reset {
+        font-size: 16px; /* Fuentes más pequeñas para inputs y botones */
+        padding: 12px 20px; /* Padding reducido */
+    }
+    .button-draw img {
+        width: 24px;   /* Icono del botón sortear más pequeño */
+        height: 24px;
+        margin-right: 8px; /* Margen reducido */
+    }
+    .name-list li, .result-list li {
+        font-size: 15px; /* Tamaño de fuente de las listas más pequeño */
+    }
+    .footer {
+        padding: 15px 10px; /* Reducir padding del footer */
+        font-size: 12px; /* Reducir tamaño de fuente del footer */
+    }
+}
